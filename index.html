@@ -1,97 +1,267 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Python - História e Fundamentos</title>
+    <title>Exercícios de Python</title>
     <style>
         body {
-            background-image: url('https://i.gifer.com/DR0E.gif');
-            background-repeat: no-repeat;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://i.gifer.com/1ktC.gif') no-repeat center center fixed;
             background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
         }
-
-        .card {
-            border: 1px solid #ccc;
-            border-radius: 8px;
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background: rgba(255, 255, 255, 0.9);
             padding: 20px;
-            margin: 15px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
+        .exercise, .info {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
             background-color: white;
         }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .btn-exercicios {
-            display: block;
-            width: 200px;
-            margin: 20px auto;
-            padding: 15px;
-            background-color: #306998;
-            color: white;
-            text-decoration: none;
-            text-align: center;
+        pre {
+            background: #eee;
+            padding: 10px;
             border-radius: 5px;
-            font-weight: bold;
+            overflow-x: auto;
         }
-
-        .btn-exercicios:hover {
-            background-color: #FFD43B;
-            color: #306998;
+        .exercise-container {
+            display: none;
+            margin-top: 20px;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+        .button-container {
+            text-align: center;
+            margin: 10px 0;
+        }
+        .toggle-button {
+            background-color: green;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            transition: background 0.3s ease;
+        }
+        .toggle-button:hover {
+            background-color: darkgreen;
         }
     </style>
+    <script>
+        function toggleExercises(id) {
+            var container = document.getElementById(id);
+            if (container.style.display === "none" || container.style.opacity === "0") {
+                container.style.display = "block";
+                setTimeout(() => { container.style.opacity = "1"; }, 10);
+            } else {
+                container.style.opacity = "0";
+                setTimeout(() => { container.style.display = "none"; }, 500);
+            }
+        }
+    </script>
 </head>
 <body>
     <div class="container">
-        <h1 style="text-align: center; color: white; font-size: 48px; margin-bottom: 30px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Python</h1>
+        <h1>Exercícios de Python</h1>
         
-        <div class="card">
-            <h2>Como surgiu o Python e seu Criador</h2>
-            <p>Python foi criado por Guido van Rossum no final dos anos 1980 e lançado em 1991. O nome foi inspirado no grupo de comédia Monty Python.</p>
+        <div class="info">
+            <h2>O que é Python?</h2>
+            <p>Python é uma linguagem de programação de alto nível, interpretada e de propósito geral. É conhecida por sua sintaxe clara e legível, sendo amplamente utilizada em desenvolvimento web, automação, ciência de dados, inteligência artificial e muito mais.</p>
+            
+            <h2>História do Python</h2>
+            <p>Python foi criado no final dos anos 1980 por Guido van Rossum e lançado em 1991. A linguagem foi projetada com a filosofia de tornar a programação mais acessível e eficiente, enfatizando a simplicidade e a legibilidade do código.</p>
+        </div>
+        
+        <div class="button-container">
+            <button class="toggle-button" onclick="toggleExercises('exercise-container-1')">If e Else</button>
+            <button class="toggle-button" onclick="toggleExercises('exercise-container-2')">Laço For</button>
+            <button class="toggle-button" onclick="toggleExercises('exercise-container-3')">Laço While</button>
+        </div>
+        
+        <div id="exercise-container-1" class="exercise-container">
+            <div class="exercise">
+                <h2>a. Verificar se um número é positivo ou negativo</h2>
+                <pre>
+numero = int(input("Digite um número: "))
+if numero > 0:
+    print("O número é positivo.")
+elif numero < 0:
+    print("O número é negativo.")
+else:
+    print("O número é zero.")
+                </pre>
+            </div>
+
+            <div class="exercise">
+                <h2>b. Verificar se um número é par ou ímpar</h2>
+                <pre>
+numero = int(input("Digite um número: "))
+if numero % 2 == 0:
+    print("O número é par.")
+else:
+    print("O número é ímpar.")
+                </pre>
+            </div>
+
+            <div class="exercise">
+                <h2>c. Verificar se um número está dentro de um intervalo</h2>
+                <pre>
+numero = int(input("Digite um número: "))
+if 1 <= numero <= 10:
+    print("O número está entre 1 e 10.")
+else:
+    print("O número não está entre 1 e 10.")
+                </pre>
+            </div>
+
+            <div class="exercise">
+                <h2>d. Verificar se uma pessoa é maior de idade</h2>
+                <pre>
+idade = int(input("Digite sua idade: "))
+if idade >= 18:
+    print("Você é maior de idade.")
+else:
+    print("Você é menor de idade.")
+                </pre>
+            </div>
+
+            <div class="exercise">
+                <h2>e. Classificar a nota do aluno</h2>
+                <pre>
+nota = float(input("Digite a nota do aluno: "))
+if nota >= 7:
+    print("Aprovado")
+elif 5 <= nota < 7:
+    print("Recuperação")
+else:
+    print("Reprovado")
+                </pre>
+            </div>
         </div>
 
-        <div class="card">
-            <h2>Local e Data de Criação</h2>
-            <p>Python foi desenvolvido no Centro de Matemática e Informática (CWI) em Amsterdã, Holanda. O desenvolvimento começou em dezembro de 1989.</p>
+        <div id="exercise-container-2" class="exercise-container">
+            <div class="exercise">
+                <h2>a. Soma dos elementos de uma lista</h2>
+                <pre>
+numeros = [1, 2, 3, 4, 5]
+soma = sum(numeros)
+print("Soma dos números:", soma)
+                </pre>
+            </div>
+
+            <div class="exercise">
+                <h2>b. Fatorial de um número</h2>
+                <pre>
+numero = 5
+fatorial = 1
+for i in range(1, numero + 1):
+    fatorial *= i
+print("Fatorial de", numero, "é:", fatorial)
+                </pre>
+            </div>
+
+            <div class="exercise">
+                <h2>c. Iterar sobre caracteres de uma string</h2>
+                <pre>
+texto = "Python"
+for caractere in texto:
+    print(caractere)
+                </pre>
+            </div>
+
+            <div class="exercise">
+                <h2>d. Números pares entre 1 e 20</h2>
+                <pre>
+for num in range(1, 21):
+    if num % 2 == 0:
+        print(num)
+                </pre>
+            </div>
+
+            <div class="exercise">
+                <h2>e. Lista de quadrados dos números de 1 a 10</h2>
+                <pre>
+quadrados = [x**2 for x in range(1, 11)]
+print("Quadrados:", quadrados)
+                </pre>
+            </div>
         </div>
 
-        <div class="card">
-            <h2>Motivo da Criação</h2>
-            <p>Foi criado com o objetivo de ser uma linguagem de alto nível com sintaxe clara e simples, focando na legibilidade do código e produtividade do programador.</p>
-        </div>
+        <div id="exercise-container-3" class="exercise-container">
+            <div class="exercise">
+                <h2>a. Soma dos elementos de uma lista utilizando while</h2>
+                <pre>
+numeros = [1, 2, 3, 4, 5]
+soma = 0
+i = 0
+while i < len(numeros):
+    soma += numeros[i]
+    i += 1
+print("Soma dos números:", soma)
+                </pre>
+            </div>
 
-        <div class="card">
-            <h2>Fundamentos do Python</h2>
-            <p>Os principais fundamentos incluem: simplicidade, legibilidade, expressividade, orientação a objetos, tipagem dinâmica e forte foco em indentação.</p>
-        </div>
+            <div class="exercise">
+                <h2>b. Fatorial de um número utilizando while</h2>
+                <pre>
+numero = 5
+fatorial = 1
+i = 1
+while i <= numero:
+    fatorial *= i
+    i += 1
+print("Fatorial de", numero, "é:", fatorial)
+                </pre>
+            </div>
 
-        <div class="card">
-            <h2>Zen do Python</h2>
-            <p>O Zen do Python são 19 princípios que guiam o design da linguagem, incluindo "Simples é melhor que complexo" e "Legibilidade conta".</p>
-        </div>
+            <div class="exercise">
+                <h2>c. Iterar sobre caracteres de uma string utilizando while</h2>
+                <pre>
+texto = "Python"
+i = 0
+while i < len(texto):
+    print(texto[i])
+    i += 1
+                </pre>
+            </div>
 
-        <div class="card">
-            <h2>Desempenho do Python</h2>
-            <p>Python é uma linguagem interpretada com foco em produtividade. Possui ótimo desempenho para a maioria das aplicações, com várias bibliotecas otimizadas.</p>
-        </div>
+            <div class="exercise">
+                <h2>d. Números pares entre 1 e 20 utilizando while</h2>
+                <pre>
+num = 1
+while num <= 20:
+    if num % 2 == 0:
+        print(num)
+    num += 1
+                </pre>
+            </div>
 
-        <div class="card">
-            <h2>Áreas de Aplicação</h2>
-            <p>Python é usado em desenvolvimento web, ciência de dados, IA, automação, jogos, aplicações desktop, scripts de sistema e muito mais.</p>
+            <div class="exercise">
+                <h2>e. Lista de quadrados dos números de 1 a 10 utilizando while</h2>
+                <pre>
+quadrados = []
+x = 1
+while x <= 10:
+    quadrados.append(x**2)
+    x += 1
+print("Quadrados:", quadrados)
+                </pre>
+            </div>
         </div>
-
-        <div class="card">
-            <h2>Principais Bibliotecas</h2>
-            <p>NumPy, Pandas, Django, Flask, TensorFlow, PyTorch, Matplotlib, Scikit-learn, entre outras.</p>
-        </div>
-
-        <a href="/Ex.html" class="btn-exercicios"> Exercícios em Python</a>
     </div>
 </body>
 </html>
